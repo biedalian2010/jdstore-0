@@ -88,12 +88,23 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address: "smtpcloud.sohu.com",
-    port: 25,
-    domain: "heroku.com",
-    authentication: "login",
-    enable_starttls_auto: true,
-    user_name: ENV["SEND_CLOUD_USER_NAME"],
-    password: ENV["SEND_CLOUD_USER_KEY"]
-    }
+                                      address: "smtpcloud.sohu.com",
+                                      port: 25,
+                                      domain: "heroku.com",
+                                      authentication: "login",
+                                      enable_starttls_auto: true,
+                                      user_name: ENV["SEND_CLOUD_USER_NAME"],
+                                      password: ENV["SEND_CLOUD_USER_KEY"]
+                                      }
+  if Rails.env.production?
+   config.cache_store = :dalli_store,
+                         (ENV["MEMCACHIER_SERVERS"] || "").split(","),
+                         {:username => ENV["MEMCACHIER_USERNAME"],
+                          :password => ENV["MEMCACHIER_PASSWORD"],
+                          :failover => true,
+                          :socket_timeout => 1.5,
+                          :socket_failure_delay => 0.2,
+                          :down_retry_delay => 60
+                         }
+  end
 end

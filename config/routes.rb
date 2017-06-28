@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   root 'products#index'
-  devise_for :users
+   devise_for :user, controllers: {
+     passwords: 'users/passwords',
+     registrations: 'users/registrations',
+     sessions: 'users/sessions'
+   }
 
   namespace :admin do
    resources :products
