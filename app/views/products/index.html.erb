@@ -1,14 +1,159 @@
-<div class="row">
-  <% @products.each do |product| %>
-    <div class="col-xs-6 col-md-3">
-      <%= link_to product_path(product) do %>
-        <% if product.image.present? %>
-          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
-        <% else %>
-          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-        <% end %>
-      <% end %>
-      <%= product.title %> ￥ <%= product.price %>
-    </div>
-  <% end %>
-</div>
+
+
+
+<html>
+<body>
+	<!--start-header-->
+	<div class="head">
+	  <div class="container row">
+			<br>
+	    <h1>服务列表</h1>
+			<br>
+			<br>
+			<div class="search-bar">
+				<form>
+					<input type="text" value="输入您想咨询的法律问题" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '输入您想咨询的法律问题';}">
+					<input type="submit" value="">
+				</form>
+			</div>
+	  </div>
+	</div>
+
+
+	<!-- welcome -->
+	<div class="welcome">
+		<div class="container">
+			<div class="col-md-8 welcome-left">
+				<h3>服务简介</h3>
+				<div class="col-md-6 wel-lft">
+					<img src="images/20.jpg" alt=" " class="img-responsive">
+				</div>
+				<div class="col-md-6 wel-rgt">
+					<p> 云孵是一家上海本土企业,我们是以律师服务为主要服务内容.在云孵成立之前,我们的目标是改变目前中国的律师服务格局
+            ,在创业路上我们也遇到了各种各样的注册/财税等困难,但最终我们克服了重重困难,创立了云孵!</p>
+					<p>同为创业者,我们深刻的理解在创业中的你的痛!这也是云孵为中小企业提供创业服务的缘由.我们立志要尽全力帮助创业者,如您有创业方面的烦恼,请随时联系我们</p>
+					<a class="hvr-shutter-in-horizontal" href="#">立即咨询</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="col-md-4 welcome-right">
+				<h3>热门问题</h3>
+					<ul>
+						<li><a href="#"><span></span>注册公司需要提供什么资料?</a></li>
+						<li><a href="#"><span></span>Real Property Law </a></li>
+						<li><a href="#"><span></span>Criminal Law</a></li>
+						<li><a href="#"><span></span>intellectual property </a></li>
+						<li><a href="#"><span></span>Serious Personal Injury Cases </a></li>
+						<li><a href="#"><span></span>Immigration Law </a></li>
+
+					</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+<!-- welcome -->
+<!-- products-start -->
+
+			<div class="panel-group">
+				<div class="container">
+          <% @products.each do |product| %>
+            <div class="col-xs-6 col-md-4">
+              <%= link_to product_path(product) do %>
+                <% if product.image.present? %>
+                  <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+                <% else %>
+                  <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                <% end %>
+              <% end %>
+              <%= product.description %> <br>￥ <%= product.price %>
+            </div>
+          <% end %>
+          <!-- <div class="row">
+            <% @products.each do |product| %>
+              <div class="col-xs-6 col-md-3">
+                <%= link_to product_path(product) do %>
+                  <% if product.image.present? %>
+                    <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+                  <% else %>
+                    <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+                  <% end %>
+                <% end %>
+                <%= product.title %> ￥ <%= product.price %>
+              </div>
+            <% end %>
+          </div> -->
+  </div>
+	<!-- products-end -->
+	<!-- news -->
+	<!-- <div class="news">
+		<div class="container">
+			<h3>News & Events</h3>
+			<div class="col-md-6 news-left">
+				<div class="col-md-6 new-lft">
+					<img src="images/10.jpg" alt=" " class="img-responsive">
+				</div>
+				<div class="col-md-6 new-rgt">
+					<h5> [10-08-2015]</h5>
+					<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.
+				</div>
+					<div class="clearfix"></div>
+			</div>
+			<div class="col-md-6 news-left">
+				<div class="col-md-6 new-lft">
+					<img src="images/7.jpg" alt=" " class="img-responsive">
+				</div>
+				<div class="col-md-6 new-rgt">
+					<h5> [10-08-2015]</h5>
+					<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</P>
+				</div>
+					<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div> -->
+	<!-- news-end -->
+	<!-- footer-starts -->
+	<!-- <div class="footer">
+		<div class="container">
+				<div class="col-md-4 contact-left">
+				<h4>Address</h4>
+					<div class="cont-tp">
+						<span class="glyphicon glyphicon-map-marker" aria-hidden="true">
+					</span></div>
+
+					<address>
+						  上海市徐汇区<br>
+						  康健路64号<br>
+						  <abbr title="Phone">P :</abbr> (021) 12345678
+						</address>
+				</div>
+				<div class="col-md-4 contact-left">
+				<h4>Phone/Fax</h4>
+					<div class="cont-tp">
+						<span class="glyphicon glyphicon-phone" aria-hidden="true">
+					</span></div>
+
+					<p>Phone : +1234567890 </p>
+					<p>Phone : +1234567890 </p>
+					<p>Fax : +1234567890 </p>
+				</div>
+				<div class="col-md-4 contact-left">
+				<h4>Newsletter</h4>
+					<div class="cont-tp">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true">
+					</span></div>
+					<form>
+						<input type="text" value="Enter Your email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Your email';}">
+						<input type="submit" value="Subscribe">
+					</form>
+				</div>
+				<div class="clearfix"></div>
+
+			<div class="footer-text">
+			</div>
+		</div>
+	</div> -->
+	<!-- footer-end -->
+</body>
+</html>

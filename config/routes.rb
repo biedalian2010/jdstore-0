@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'products#index'
+  root 'welcome#index'
    devise_for :user, controllers: {
      passwords: 'users/passwords',
      registrations: 'users/registrations',
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
    resources :products
+
    resources :orders do
      member do
        post :cancel

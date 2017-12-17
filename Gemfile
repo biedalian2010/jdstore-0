@@ -34,14 +34,13 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
 gem 'font-awesome-rails'
-gem "carrierwave"
+gem 'carrierwave'
 gem "mini_magick"
 gem 'letter_opener', group: :development
 gem 'aasm'
 gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
-gem 'airbrake', '~> 5.4'
 gem 'rucaptcha'
 gem 'dalli'
 
