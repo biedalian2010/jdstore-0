@@ -1,47 +1,107 @@
+<style>
+.navli{
+  margin-right:15px;
+}
+</style>
+
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/">JDStore </a>
+            <a class="navbar-brand" href="/" ><img src="images/new_logo.png" style="width:70px;margin:-10px 15px 0px;" /></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse "  id="bs-example-navbar-collapse-1" style="color:black;margin-top:10px;">
                <ul class="nav navbar-nav">
-                 <li class="active">
-                   <%= link_to("Products", products_path) %>
+                 <li class="active" style="color:black;margin-top:10px;">
+                   <%= link_to("问卷一览", products_path,:style=>"color:black") %>
                  </li>
                </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-               <li>
-                 <%= link_to carts_path do  %>
-                 购物车 <i class="fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %> )
-                 <% end %>
-               </li>
-            <% if !current_user %>
-              <li><%= link_to("注册", new_user_registration_path) %> </li>
-              <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
-              <% else %>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Hi!, <%= current_user.email %>
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <% if current_user.admin? %>
-                  <li>
-                    <%= link_to("Admin 选单", admin_products_path ) %>
+               <ul class="nav navbar-nav">
+                 <li class="active" style="color:black;margin-top:10px;">
+                   <%= link_to("工商登记", products_path,:style=>"color:black") %>
+                 </li>
+               </ul>
+
+               <ul class="nav navbar-nav">
+                 <li class="active" style="color:black;margin-top:10px;">
+                   <%= link_to("财税服务", products_path,:style=>"color:black") %>
+                 </li>
+               </ul>
+
+               <ul class="nav navbar-nav">
+                 <li class="active" style="color:black;margin-top:10px;">
+                   <%= link_to("知识产权", products_path,:style=>"color:black") %>
+                 </li>
+               </ul>
+
+               <ul class="nav navbar-nav">
+                 <li class="active" style="color:black;margin-top:10px;">
+                   <%= link_to("法律咨询", products_path,:style=>"color:black") %>
+                 </li>
+               </ul>
+
+               <ul class="nav navbar-nav">
+                 <li class="active" style="color:black;margin-top:10px;">
+                   <%= link_to("政策咨询", products_path,:style=>"color:black") %>
+                 </li>
+               </ul>
+
+        <!-- <div class="collapse navbar-collapse" style="color:black;margin-top:10px;">
+            <ul class="nav navbar-nav navbar-left" style="margin-left:300px;font-size:20px;">
+                <li class="navli">
+                  <%= link_to "问卷一览", "#",:style=>"color:black" %>
+                </li>
+                <li class="navli">
+                  <%= link_to("工商登记", products_path,:style=>"color:black") %>
+                </li>
+                <li class="navli">
+                  <%= link_to("财税服务", products_path,:style=>"color:black") %>
+                </li>
+                <li class="navli">
+                  <%= link_to("知识产权", products_path,:style=>"color:black") %>
+                </li>
+                <li class="navli">
+                  <%= link_to("法律咨询", products_path,:style=>"color:black") %>
+                </li>
+                <li>
+                  <%= link_to("政策咨询", products_path,:style=>"color:black") %>
+                </li> -->
+
+                <ul class="nav navbar-nav navbar-right">
+                   <li>
+                     <%= link_to carts_path do  %>
+                     <!-- 购物车 --><i class="fa fa-shopping-cart"> </i> ( <%= current_cart.products.count %> )
+                     <% end %>
+                   </li>
+                <% if !current_user %>
+                  <li><%= link_to("注册", new_user_registration_path) %> </li>
+                  <li><%= link_to(content_tag(:i, '登入', class: 'fa fa-sign-in'), new_user_session_path) %></li>
+                  <% else %>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Hi!, <%= current_user.email %>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <% if current_user.admin? %>
+                      <li>
+                        <%= link_to("Admin 选单", admin_products_path ) %>
+                      </li>
+                      <% end %>
+                      <li>
+                        <%= link_to("个人订单列表", account_orders_path ) %>
+                      </li>
+                        <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
+                    </ul>
                   </li>
-                  <% end %>
-                  <li>
-                    <%= link_to("个人订单列表", account_orders_path ) %>
-                  </li>
-                    <li> <%= link_to(content_tag(:i, '登出', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete) %> </li>
-                </ul>
-              </li>
-            <% end %>
-          </ul>
+                <% end %>
+              </ul>
+            </ul>
+        </div>
+
+
         </div>
         <!-- /.navbar-collapse -->
     </div>
